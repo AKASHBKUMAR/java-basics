@@ -212,11 +212,83 @@ class Patterns {
             System.out.println();
         }
     }
+
+    static void spacePyramidPattern() {
+        int N = 5;
+        for (int rowIterator = 0; rowIterator < N; rowIterator++) {
+            //star
+            for (int starIterator = 0; starIterator < N - rowIterator; starIterator++) {
+                System.out.print("*");
+            }
+            //space
+            for (int spaceIterator = 0; spaceIterator < 2 * rowIterator; spaceIterator++) {
+                System.out.print(" ");
+            }
+            //star
+            for (int starIterator = 0; starIterator < N - rowIterator; starIterator++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        for (int lowerRowIterator = 0; lowerRowIterator < N; lowerRowIterator++) {
+            for (int starIterator = 0; starIterator <= lowerRowIterator; starIterator++) {
+                System.out.print("*");
+            }
+            for (int spaceIterator = 0; spaceIterator < 2 * (N - lowerRowIterator - 1); spaceIterator++) {
+                System.out.print(" ");
+            }
+            for (int starIterator = 0; starIterator <= lowerRowIterator; starIterator++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    static void columnSymmetryMatrix() {
+        int N = 5;
+        int spaces = 2 * N - 2;
+        for (int rowIterator = 1; rowIterator <= 2 * N - 1; rowIterator++) {
+            int stars = rowIterator;
+            if (rowIterator > N) {
+                stars = ((2 * N) - rowIterator);
+            }
+            for (int starIterator = 1; starIterator <= stars; starIterator++) {
+                System.out.print("*");
+            }
+            //space
+            for (int spaceIterator = 1; spaceIterator <= spaces; spaceIterator++) {
+                System.out.print(" ");
+            }
+            for (int starIterator = 1; starIterator <= stars; starIterator++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            if (rowIterator >= N) {
+                spaces += 2;
+            } else {
+                spaces -= 2;
+            }
+        }
+    }
+
+    static void hollowSquarePattern() {
+        int N = 10;
+        for (int rowsIterator = 0; rowsIterator < N; rowsIterator++) {
+            for (int columnIterator = 0; columnIterator < N; columnIterator++) {
+                if (rowsIterator == 0 || rowsIterator == N - 1 || columnIterator == 0 || columnIterator == N - 1) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
 
 public class SquarePatterns {
     public static void main(String[] args) {
-        Patterns.reverseCharacterTrianglePattern();
+        Patterns.hollowSquarePattern();
 
 
     }
